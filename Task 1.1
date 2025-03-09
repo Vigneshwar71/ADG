@@ -15,17 +15,17 @@ sns.countplot(x='Pclass', hue='Survived', data=df)
 plt.title('Survival by Passenger Class')
 plt.show()
 
-# Survival by Gender
+#Gender
 sns.countplot(x='Sex', hue='Survived', data=df)
 plt.title('Survival by Gender')
 plt.show()
 
-# Age Distribution by Survival
+#Survival
 sns.histplot(data=df, x='Age', hue='Survived', kde=True, bins=20)
 plt.title('Age Distribution by Survival')
 plt.show()
 
-# Correlation Heatmap
+#Correlation_Heatmap
 corr = df.corr(numeric_only=True)
 sns.heatmap(corr, annot=True, cmap='coolwarm')
 plt.title('Correlation Matrix')
