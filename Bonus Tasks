@@ -1,0 +1,10 @@
+# Example: Titanic dataset
+import pandas as pd
+# Create 'FamilySize'
+df['FamilySize'] = df['SibSp'] + df['Parch'] + 1  # +1 for the passenger themselves
+# Create 'AgeGroup' (e.g., Child: 0-12, Teen: 13-19, Adult: 20-59, Senior: 60+)
+df['AgeGroup'] = pd.cut(df['Age'], bins=[0, 12, 19, 59, 100], labels=['Child', 'Teen', 'Adult', 'Senior'])
+
+age_dummies = pd.get_dummies(df['AgeGroup'], prefix='AgeGroup')
+df = pd.concat([df, age_dummies], axis=1)
+df = df.drop('AgeGroup', axis=1)
